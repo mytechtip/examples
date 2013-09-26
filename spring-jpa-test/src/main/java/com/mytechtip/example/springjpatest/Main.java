@@ -11,11 +11,11 @@ public class Main {
 		ClassPathXmlApplicationContext context = 
 				new ClassPathXmlApplicationContext("beans.xml");
 		
-		UserDao dao = context.getBean(UserDao.class);
+		AbstractUserDao dao = context.getBean(UserDaoRepo.class);
 		
 		User u = new User();
 		u.setAddress("my address");
-		u.setName("John Smith II");
+		u.setName("John Smith III");
 		
 		Calendar cal = Calendar.getInstance();
 		cal.set(2001, 0, 1);
@@ -25,7 +25,7 @@ public class Main {
 		
 		List<User> list = dao.getNameStartsWith("J");
 		for (User user : list) {
-			System.out.println(u.getName());
+			System.out.println(user.getName());
 		}
 		context.close();
 	}

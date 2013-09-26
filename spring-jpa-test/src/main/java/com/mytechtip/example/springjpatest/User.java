@@ -11,6 +11,9 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="user")
+@NamedQueries({
+	@NamedQuery(name="User.getNameStartsWith", query="select u from User u where u.name LIKE ? order by u.name")
+})
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -18,7 +21,7 @@ public class User implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	private String name;
 	private String address;
 	
@@ -28,11 +31,11 @@ public class User implements Serializable {
 	public User() {
 		super();
 	}   
-	public long getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}   
 	public String getName() {

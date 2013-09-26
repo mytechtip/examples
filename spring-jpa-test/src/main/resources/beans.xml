@@ -4,13 +4,18 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/tx 
 	http://www.springframework.org/schema/tx/spring-tx.xsd
 	http://www.springframework.org/schema/context 
 	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/data/jpa 
+	http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
 	">
+
+	<jpa:repositories base-package="com.mytechtip.example.springjpatest.repository" />
 
 	<!-- Enable the component scan (auto wiring etc) for the following package -->
 	<context:component-scan base-package="com.mytechtip.example.springjpatest" />
@@ -25,29 +30,24 @@
 	<bean id='entityManagerFactory' class='org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean'>
 		<property name="persistenceUnitName" value="spring-jpa-test"/>
 		<property name='dataSource' ref='dataSource' />
-		<property name="jpaPropertyMap">
-  			<map>
-    			<entry key="eclipselink.weaving" value="false"/>
-  			</map>
-		</property>
 	</bean>
 
 	<!-- This defines the hsqldb data source -->
+	<!-- 
 	<bean id='dataSource' class='org.springframework.jdbc.datasource.DriverManagerDataSource'>
 		<property name='driverClassName' value='org.hsqldb.jdbc.JDBCDriver' />
 		<property name='url' value='jdbc:hsqldb:file:spring_jpa_test_db' />
 		<property name='username' value='sa' />
 		<property name='password' value='' />
 	</bean>
+ 	-->		
 	
-	<!-- 
 	<bean id='dataSource' class='org.springframework.jdbc.datasource.DriverManagerDataSource'>
 		<property name='driverClassName' value='com.mysql.jdbc.Driver' />
 		<property name='url' value='jdbc:mysql://localhost:3306/spring_jpa_test' />
 		<property name='username' value='root' />
 		<property name='password' value='123456' />
 	</bean>
- -->		
 	
 	
 	
