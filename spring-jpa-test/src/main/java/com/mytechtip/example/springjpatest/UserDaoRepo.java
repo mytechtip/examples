@@ -33,6 +33,7 @@ public class UserDaoRepo extends AbstractUserDao {
 
 	@Transactional
 	public List<User> getNameStartsWith(String namePrefix) {
+		// use the spring data jpa repository
 		return userRepository.getNameStartsWith(namePrefix+"%");
 	}
 }

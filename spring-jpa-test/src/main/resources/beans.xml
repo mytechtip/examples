@@ -15,6 +15,7 @@
 	http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
 	">
 
+	<!-- the base package for spring data jpa repository interfaces -->
 	<jpa:repositories base-package="com.mytechtip.example.springjpatest.repository" />
 
 	<!-- Enable the component scan (auto wiring etc) for the following package -->

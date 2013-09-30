@@ -12,7 +12,8 @@ import javax.persistence.*;
 @Entity
 @Table(name="user")
 @NamedQueries({
-	@NamedQuery(name="User.getNameStartsWith", query="select u from User u where u.name LIKE ? order by u.name")
+	@NamedQuery(name="User.getNameStartsWith", 
+			query="select u from User u where u.name LIKE ? order by u.name")
 })
 public class User implements Serializable {
 
